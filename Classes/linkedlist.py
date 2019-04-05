@@ -162,3 +162,19 @@ class LinkedList():
         # TODO Create function to insert node into linked list using 'location' kwarg
         # kwargs['location'] == 'before' or kwargs['location'] == 'after'
         pass
+    
+    def reverse_linked_list(self):
+        previousN = None
+        currentN = self.head
+        while currentN is not None:
+            nextNode = currentN.next
+            currentN.next = previousN
+            previousN = currentN
+            currentN = nextNode
+        self.head = previousN
+    
+    def print_nodes(self):
+        n = self.head
+        while n.next:
+            print(n)
+            n = n.next
